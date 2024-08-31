@@ -31,11 +31,12 @@ addresses = new Set();
 const data = fs.readFileSync('./data.txt');
 // Splitting the data by new line and adding each address to the Set
 data.toString().split("\n").forEach(address => {
-    if (address.startsWith('T')) {
-        addresses.add(address);
-    } else {
-        console.error('Error: AVAX C-CHAIN addresses are not in correct format. Addresses must start with T');
-        process.exit(1);
+   if (address.startsWith('T')) {
+    addresses.add(address);  // Add the Tron address to the set
+} else {
+    console.error('Error: Tron addresses are not in the correct format. Addresses must start with T');
+    process.exit(1);  // Exit the script if the address is not a valid Tron address
+}
     }
 });
 
